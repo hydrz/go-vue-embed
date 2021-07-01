@@ -9,7 +9,7 @@ import (
 	"text/template"
 
 	jsoniter "github.com/json-iterator/go"
-	"hydrz.com/embed/assets"
+	"hydrz.com/go-vue-embed/assets"
 )
 
 //go:embed index.tmpl manifest.json

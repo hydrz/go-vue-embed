@@ -1,4 +1,4 @@
-module hydrz.com/embed
+module hydrz.com/go-vue-embed
 
 go 1.16
 
