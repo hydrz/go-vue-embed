@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     manifest: true,
     rollupOptions: {
-      input: '/src/main.js'
+      input: '/vue/main.js'
     },
     outDir: "./",
     emptyOutDir: false

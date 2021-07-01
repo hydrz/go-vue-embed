@@ -1,13 +1,13 @@
 {
-  "src/main.js": {
-    "file": "assets/main.6db5dfe2.js",
-    "src": "src/main.js",
+  "vue/main.js": {
+    "file": "assets/main.d09ab95e.js",
+    "src": "vue/main.js",
     "isEntry": true,
     "imports": [
       "_vendor.e14e89f5.js"
     ],
     "css": [
-      "assets/main.41a4938a.css"
+      "assets/main.2481efdd.css"
     ]
   },
   "_vendor.e14e89f5.js": {
