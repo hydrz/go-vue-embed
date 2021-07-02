@@ -9,7 +9,8 @@ export default defineConfig({
     rollupOptions: {
       input: '/vue/main.js'
     },
-    outDir: "./",
+    outDir: "./assets",
+    assetsDir: "./",
     emptyOutDir: false
   }
 })
