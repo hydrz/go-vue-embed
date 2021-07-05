@@ -4,25 +4,15 @@ import (
 	"log"
 	"net/http"
 
-	"hydrz.com/go-vue-embed/assets"
+	"hydrz.com/go-vue-embed/dist"
 )
 
 func main() {
-	http.Handle(assets.AssetsPrefix, http.StripPrefix(assets.AssetsPrefix, http.FileServer(http.FS(assets.AssetsFs))))
+	http.Handle("/", dist.NewAssetsHandler())
 
-	a, err := assets.GetAssets()
-
-	if err != nil {
-		panic(err)
-	}
-
-	t, err := assets.GetIndexTemplate()
-	if err != nil {
-		panic(err)
-	}
-
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		t.Execute(w, a)
+	http.HandleFunc("/test", func(rw http.ResponseWriter, r *http.Request) {
+		var s = "test"
+		rw.Write([]byte(s))
 	})
 
 	log.Fatal(http.ListenAndServe(":8080", nil))

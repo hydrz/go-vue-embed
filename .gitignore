@@ -155,7 +155,6 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/
@@ -233,7 +232,7 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,go,macos,node,windows
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
-embed
-assets/*
-!assets/*.go
-!assets/*.tmpl
+go-vue-embed
+dist/*
+!dist/*.go
+!dist/*.tmpl
