@@ -28,7 +28,7 @@ type assetsHandler struct {
 	template *template.Template
 }
 
-var mode = flag.String("devMode", "dev", "deployment environment")
+var mode = flag.String("devMode", "prod", "deployment environment")
 var devHost = flag.String("devHost", "http://localhost:3000", "vue dev server")
 
 func NewAssetsHandler() *assetsHandler {
@@ -53,10 +53,10 @@ func (ah *assetsHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	name := path.Clean(upath)
 
 	var fs http.FileSystem
-	if ah.isProd() {
-		fs = http.FS(assetsFs)
-	} else {
+	if ah.idDev() {
 		fs = http.Dir(".")
+	} else {
+		fs = http.FS(assetsFs)
 	}
 
 	f, err := fs.Open(name)
@@ -86,7 +86,7 @@ func (ah *assetsHandler) getAssets() {
 	var mainJs = ah.devHost + "/vue/main.js"
 	var viteJs = ah.devHost + "/@vite/client"
 	var css []string
-	if ah.isProd() {
+	if !ah.idDev() {
 		viteJs = ""
 		manifest, err := assetsFs.ReadFile("manifest.json")
 		if err != nil {
@@ -120,8 +120,8 @@ func (ah *assetsHandler) getIndexTemplate() {
 	ah.template = t
 }
 
-func (ah *assetsHandler) isProd() bool {
-	return ah.mode == "prod"
+func (ah *assetsHandler) idDev() bool {
+	return ah.mode == "dev"
 }
 
 func toHTTPError(err error) (msg string, httpStatus int) {

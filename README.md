@@ -9,13 +9,13 @@ Go 1.16 embed
 ```
 npm i
 npm run dev
-go run main.go
+go run main.go -devMode dev
 ```
 
 ## prod
 ```
 npm run build
 go build
-./go-vue-embed -devMode prod
+./go-vue-embed
 ```
 

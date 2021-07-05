@@ -1,8 +1,8 @@
 all: dev
 
 dev:
-	go run main.go&
 	npm run dev&
+	go run main.go -devMode dev
 
 prod:
 	npm run build && go build
