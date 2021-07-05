@@ -4,11 +4,11 @@ import (
 	"log"
 	"net/http"
 
-	"hydrz.com/go-vue-embed/dist"
+	"hydrz.com/go-vue-embed/assets"
 )
 
 func main() {
-	http.Handle("/", dist.NewAssetsHandler())
+	http.Handle("/", assets.NewAssetsHandler())
 
 	http.HandleFunc("/test", func(rw http.ResponseWriter, r *http.Request) {
 		var s = "test"

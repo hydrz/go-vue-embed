@@ -1,4 +1,4 @@
-package dist
+package assets
 
 import (
 	"embed"
