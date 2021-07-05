@@ -16,6 +16,6 @@ go run main.go
 ```
 npm run build
 go build
-./go-vue-embed
+./go-vue-embed -devMode prod
 ```
 
